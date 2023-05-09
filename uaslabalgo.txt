@@ -75,3 +75,29 @@ void kembalikanBuku(Buku books[], int banyakBuku) {
     books[Indexbuku].dipinjam = 0;
     printf("Buku berhasil dikembalikan.\n");
 }
+
+// Fungsi untuk menampilkan seluruh buku dalam array books
+void tampilkansemuaBuku(Buku books[], int banyakBuku) {
+    int i;
+    if (banyakBuku == 0) {
+        printf("Tidak ada buku yang tersimpan.\n");
+        return;
+    }
+    for (i = 0; i < banyakBuku; i++) {
+        printf("=====================\n");
+        printf("Judul: %s\n", books[i].judul);
+        printf("Pengarang: %s\n", books[i].pengarang);
+        printf("Penerbit: %s\n", books[i].penerbit);
+        printf("Jumlah halaman: %d\n", books[i].halaman);
+        if (books[i].dipinjam) {
+            printf("Status peminjaman: Dipinjam\n");
+        } else {
+            printf("Status peminjaman: Tersedia\n");
+        }
+    }
+}
+int main() {
+Buku books[MAX_BOOKS];
+int banyakBuku = 0;
+int pilihan;
+
