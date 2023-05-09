@@ -96,6 +96,7 @@ void tampilkansemuaBuku(Buku books[], int banyakBuku) {
         }
     }
 }
+
 int main() {
 Buku books[MAX_BOOKS];
 int banyakBuku = 0;
