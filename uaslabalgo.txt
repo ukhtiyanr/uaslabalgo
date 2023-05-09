@@ -57,3 +57,21 @@ void pinjamBuku(Buku books[], int banyakBuku) {
     books[Indexbuku].dipinjam = 1;
     printf("Buku berhasil dipinjam.\n");
 }
+
+//fungsi untuk mengembalikan buku
+void kembalikanBuku(Buku books[], int banyakBuku) {
+    char judul[100];
+    printf("Judul buku yang ingin dikembalikan: ");
+    scanf(" %[^\n]s", judul);
+    int Indexbuku = cariBuku(books, judul, banyakBuku);
+    if (Indexbuku == -1) {
+        printf("Maaf, buku tidak ditemukan.\n");
+        return;
+    }
+    if (!books[Indexbuku].dipinjam) {
+        printf("Maaf, buku belum dipinjam.\n");
+        return;
+    }
+    books[Indexbuku].dipinjam = 0;
+    printf("Buku berhasil dikembalikan.\n");
+}
