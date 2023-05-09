@@ -100,4 +100,37 @@ int main() {
 Buku books[MAX_BOOKS];
 int banyakBuku = 0;
 int pilihan;
+do {
+printf("\n======== Perpustakaan ========\n");
+printf("1. Tambah buku\n");
+printf("2. Pinjam buku\n");
+printf("3. Kembalikan buku\n");
+printf("4. Tampilkan seluruh buku\n");
+printf("0. Keluar\n");
+printf("Pilih: ");
+scanf("%d", &pilihan);
+
+switch (pilihan) {
+  case 1:
+  tambahBuku(books, &banyakBuku);
+  break;
+  case 2:
+  pinjamBuku(books, banyakBuku);
+  break;
+  case 3:
+  kembalikanBuku(books, banyakBuku);
+  break;
+  case 4:
+  tampilkansemuaBuku(books, banyakBuku);
+  break;
+  case 0:
+  printf("Terima kasih telah menggunakan layanan perpustakaan.\n");
+  break;
+  default:
+  printf("Pilihan tidak valid.\n");
+  break;
+  }
+} while (pilihan != 0);
+return 0;
+}
 
