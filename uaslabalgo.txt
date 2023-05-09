@@ -18,3 +18,42 @@ int cariBuku(Buku books[], char judul[], int banyakBuku){
   }
   return -1;
 }
+
+// Fungsi untuk menambah buku ke dalam array books
+void tambahBuku(Buku books[], int* banyakBuku) {
+    if (*banyakBuku >= MAX_BOOKS) {
+        printf("Maaf, tidak dapat menambah buku lagi.\n");
+        return;
+    }
+    Buku Bukubaru;
+    printf("Judul: ");
+    scanf(" %[^\n]s", Bukubaru.judul);
+    printf("Pengarang: ");
+    scanf(" %[^\n]s", Bukubaru.pengarang);
+    printf("Penerbit: ");
+    scanf(" %[^\n]s", Bukubaru.penerbit);
+    printf("Jumlah halaman: ");
+    scanf("%d", &Bukubaru.halaman);
+    Bukubaru.dipinjam = 0; // set default status peminjaman ke false
+    books[*banyakBuku] = Bukubaru;
+    (*banyakBuku)++;
+    printf("Buku berhasil ditambahkan.\n");
+}
+
+// Fungsi untuk meminjam buku
+void pinjamBuku(Buku books[], int banyakBuku) {
+    char judul[100];
+    printf("Judul buku yang ingin dipinjam: ");
+    scanf(" %[^\n]s", judul);
+    int Indexbuku = cariBuku(books, judul, banyakBuku);
+    if (Indexbuku == -1) {
+        printf("Maaf, buku tidak ditemukan.\n");
+        return;
+    }
+    if (books[Indexbuku].dipinjam) {
+        printf("Maaf, buku sedang dipinjam.\n");
+        return;
+    }
+    books[Indexbuku].dipinjam = 1;
+    printf("Buku berhasil dipinjam.\n");
+}
