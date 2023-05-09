@@ -2,3 +2,19 @@
 #include <string.h>
 #define MAX_BOOKS 100
 
+//struct untuk menyimpan informasi buku
+typedef struct Buku{
+  char judul[100], pengarang[100], penerbit[100];
+  int halaman, dipinjam;
+} Buku;
+
+//fungsi untuk mencari buku berdasarkan judul
+int cariBuku(Buku books[], char judul[], int banyakBuku){
+  int i;
+  for(i = 0; i < banyakBuku; i++){
+    if(strcmp(books[i].judul, judul) == 0){
+    return i;
+   }
+  }
+  return -1;
+}
